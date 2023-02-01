@@ -4,7 +4,7 @@ const KEY = '2f1ef3830286d020340d6039bd2ecd1f';
 axios.defaults.baseURL = 'https://api.themoviedb.org/3';
 
 export async function fetchMoviesTrend() {
-    const response = await axios('/trending/movie/week', {
+    const response = await axios('/trending/movie/day', {
         params: {
             api_key: KEY,
             size: 20,
@@ -24,3 +24,13 @@ export async function fetchMovieById(id) {
     return response.data;
 }
 
+export async function fetchMovieSearch(query) {
+    const response = await axios(`/search/movie`, {
+        params: {
+            api_key: KEY,
+            query,
+        },
+    });
+
+    return response.data.results;
+}
