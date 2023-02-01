@@ -19,7 +19,7 @@ export const MovieSubPage = () => {
                 <>
                     <div>
                         <h2>{movie.title}</h2>
-                        <img src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`} alt={movie.title} />
+                        <img src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`} alt={movie.title} />
                         <p>Additional information</p>
                         <ul>
                             <li>
