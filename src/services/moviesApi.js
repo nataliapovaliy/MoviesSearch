@@ -44,3 +44,13 @@ export async function fetchMovieCast(id) {
 
     return response.data.cast;
 }
+
+export async function fetchMovieReviews(id) {
+    const response = await axios(`/movie/${id}/reviews`, {
+        params: {
+            api_key: KEY,
+        },
+    });
+
+    return response.data.results;
+}

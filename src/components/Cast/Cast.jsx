@@ -10,7 +10,7 @@ export const Cast = () => {
     useEffect (() => {
         fetchMovieCast(movieId)
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 setCasts(data);
             });
                 
