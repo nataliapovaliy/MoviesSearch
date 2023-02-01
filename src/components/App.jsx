@@ -1,16 +1,18 @@
 import { Routes, Route } from "react-router-dom";
-import { Home } from './HomePage/Home';
-import axios from 'axios';
-import styled from 'styled-components'
+import { Layout } from "./Layout/Layout";
+import { HomePage } from "pages/HomePage/HomePage";
+import { MoviesPage } from "pages/MoviesPage/MoviesPage";
+
+// import styled from 'styled-components'
 
 export const App = () => {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<Home />} />
-        {/* <Route path="/about" element={<About />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="*" element={<NotFound />} /> */}
+        <Route path="/" element={<Layout />} >
+          <Route index element={<HomePage />} />
+          <Route path='movies' element={< MoviesPage />} />
+        </Route>
       </Routes>
     </div>
   );
