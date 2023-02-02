@@ -5,10 +5,14 @@ import { MoviesPage } from "pages/MoviesPage/MoviesPage";
 import { MovieDetails } from "pages/MovieDetails/MovieDetails";
 import { Cast } from "./Cast/Cast";
 import { Reviews } from "./Reviews/Reviews";
+// import { lazy, Suspense } from "react";
+
+// const Cast = lazy(() => import("./Cast/Cast"));
 
 export const App = () => {
 
   return (
+    // <Suspense fallback={<div>Loading...</div>}>
     <div>
       <Routes>
 
@@ -25,6 +29,7 @@ export const App = () => {
           
         </Route>  
       </Routes>
-    </div>
+      </div>
+      // </Suspense>
   );
 };
