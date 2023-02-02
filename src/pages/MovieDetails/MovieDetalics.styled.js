@@ -19,7 +19,7 @@ export const OverviewTitle = styled.h3`
     font-size: large;
 `
 export const OverviewParagraf = styled.p`
-    max-width: 500px;
+    /* max-width: 500px; */
 `
 
 export const GenresTitle = styled.p`
