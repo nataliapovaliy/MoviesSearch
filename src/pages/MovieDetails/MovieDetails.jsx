@@ -21,9 +21,11 @@ export const MovieDetails = () => {
     `
     const Container = styled.div`
         margin-left: 20px;
+        padding-bottom: 20px;
         display: flex;
         flex-direction: row;
         gap: 20px;
+        border-bottom: 2px solid lightgray;
     `
     const ListDetails = styled.div`
         display: flex;
@@ -51,6 +53,9 @@ export const MovieDetails = () => {
     `
     const DivDetails = styled.div`
         margin-left: 20px;
+        margin-bottom: 10px;
+        /* padding-bottom: 20px; */
+        border-bottom: 2px solid lightgray;
     `
 
     return (
