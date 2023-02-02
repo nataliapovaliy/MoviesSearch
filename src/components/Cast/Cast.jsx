@@ -18,17 +18,19 @@ export const Cast = () => {
 
     return (
         <>
-        {casts && (
-            <ul>
-                {casts.map(({id, profile_path, original_name, character }) => (
-                <li key={id}>
-                    <img src={`https://image.tmdb.org/t/p/w200${profile_path}`} alt={original_name} />
-                    <p>{original_name}</p>
-                    <p>{character}</p>
-                </li>
-            ) )}
-            </ul>
-        )}
+            {(casts !== null) ? (
+                <>
+                    <ul>
+                        {casts.map(({id, profile_path, original_name, character }) => (
+                        <li key={id}>
+                            <img src={`https://image.tmdb.org/t/p/w200${profile_path}`} alt={original_name} />
+                            <p>{original_name}</p>
+                            <p>{character}</p>
+                        </li>
+                        ) )}
+                    </ul>
+                </>
+            ) : <p>We don't have any casts for this movie.</p>}
         </>
     )
 }

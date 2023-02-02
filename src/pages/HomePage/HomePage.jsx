@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { fetchMoviesTrend } from "services/moviesApi";
 import { Link, Outlet } from "react-router-dom";
+import styled from "styled-components";
 
 export const HomePage = () => {
     const [movies, setMovies] = useState([]);
@@ -10,15 +11,22 @@ export const HomePage = () => {
             .then(setMovies);
     }, [])
 
+    const ContainerHome = styled.div`
+        margin-left: 20px;
+    `
+    
     return (
         <>
-        <ul>
-            {movies.map(({ title, id }) => (
-                <li key={id}>
-                    <Link to={`movies/${id}`}>{title}</Link>
-                </li>
-            ))}
-        </ul>
+        <ContainerHome>
+            <h2>Trending today</h2>
+            <ul>
+                {movies.map(({ title, id }) => (
+                    <li key={id}>
+                        <Link to={`movies/${id}`}>{title}</Link>
+                    </li>
+                ))}
+            </ul>
+        </ContainerHome>
         <Outlet />
         </>
     )
