@@ -1,9 +1,9 @@
-import { StyledLink } from "./Navigation.styled";
+import { StyledLink, HeaderDiv } from "./Navigation.styled";
 
 export const Navigation = () => {
     return (
         <nav>
-            <ul>
+            <HeaderDiv>
                 <li>
                     <StyledLink to='/'>Home</StyledLink>
                     
@@ -12,7 +12,7 @@ export const Navigation = () => {
                     <StyledLink to='movies'>Movies</StyledLink>
                 
                 </li>
-            </ul>
+            </HeaderDiv>
         </nav>
     )
 }

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { Link, Outlet, useSearchParams } from "react-router-dom";
 import { fetchMovieSearch } from "services/moviesApi";
+import { FormInput, Input, ButtonSearch } from './MoviesPage.styled';
 
 export const MoviesPage = () => {
     const [querySearchText, setQuerySearchText] = useState([]);
@@ -23,10 +24,10 @@ export const MoviesPage = () => {
 
     return (
         <>
-            <form onSubmit={handleSubmit}>
-                <input type="text" name="searchText" />
-                <button type="submit">Search</button>
-            </form>
+            <FormInput onSubmit={handleSubmit}>
+                <Input type="text" name="searchText" />
+                <ButtonSearch type="submit">Search</ButtonSearch>
+            </FormInput>
 
             <ul>
             {querySearchText.map(({ title, id }) => (

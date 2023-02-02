@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom"
 import { fetchMovieCast } from "services/moviesApi";
+import { ListCasts, Img } from './Cast.styled';
 
 export const Cast = () => {
     const [casts, setCasts] = useState(null);
@@ -10,7 +11,7 @@ export const Cast = () => {
     useEffect (() => {
         fetchMovieCast(movieId)
             .then(data => {
-                // console.log(data);
+                console.log('casts >>>>', data);
                 setCasts(data);
             });
                 
@@ -18,19 +19,19 @@ export const Cast = () => {
 
     return (
         <>
-            {(casts !== null) ? (
+            {(casts && casts.length > 0) ? (
                 <>
-                    <ul>
+                    <ListCasts>
                         {casts.map(({id, profile_path, original_name, character }) => (
                         <li key={id}>
-                            <img src={`https://image.tmdb.org/t/p/w200${profile_path}`} alt={original_name} />
+                            <Img src={`https://image.tmdb.org/t/p/w200${profile_path}`} alt={original_name} />
                             <p>{original_name}</p>
                             <p>{character}</p>
                         </li>
                         ) )}
-                    </ul>
+                    </ListCasts>
                 </>
-            ) : <p>We don't have any casts for this movie.</p>}
+            ) : (<p>We don't have any casts for this movie.</p>)}
         </>
     )
 }

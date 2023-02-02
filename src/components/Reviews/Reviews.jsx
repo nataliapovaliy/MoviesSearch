@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom"
 import { fetchMovieReviews } from "services/moviesApi";
+import styled from "styled-components";
 
 export const Reviews = () => {
     const [reviews, setReviews] = useState(null);
@@ -16,18 +17,21 @@ export const Reviews = () => {
                 
     }, [movieId]);
 
+    const TitleAuthor= styled.p`
+        font-weight: 500;
+    `
     return (
         <>
-        {reviews !== null ? (
+        {reviews && reviews.length > 0 ? (
             <ul>
                 {reviews.map(({id, author, content }) => (
                 <li key={id}>
-                    <p>Author: {author}</p>
+                    <TitleAuthor>Author: {author}</TitleAuthor>
                     <p>{content}</p>
                 </li>
             ) )}
             </ul>
-            ) : <p>We don't have any reviews for this movie.</p>
+            ) : (<p>We don't have any reviews for this movie.</p>)
         }
         </>
     )

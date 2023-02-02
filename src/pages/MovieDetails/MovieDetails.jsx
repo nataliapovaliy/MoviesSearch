@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { Link, Outlet, useNavigate, useParams } from "react-router-dom";
 import { fetchMovieById } from "services/moviesApi";
-import styled from "styled-components";
+import { ButtonGoBack, Container, ListDetails, OverviewTitle, OverviewParagraf, GenresTitle, GenresDiv, GenresList, DivDetails } from './MovieDetalics.styled'
 
 
 export const MovieDetails = () => {
@@ -15,48 +15,6 @@ export const MovieDetails = () => {
         fetchMovieById(movieId)
             .then(setMovie);
     }, [movieId]);
-
-    const ButtonGoBack = styled.button`
-        margin: 20px;
-    `
-    const Container = styled.div`
-        margin-left: 20px;
-        padding-bottom: 20px;
-        display: flex;
-        flex-direction: row;
-        gap: 20px;
-        border-bottom: 2px solid lightgray;
-    `
-    const ListDetails = styled.div`
-        display: flex;
-        flex-direction: column;
-    `
-    const OverviewTitle = styled.h3`
-        font-size: large;
-    `
-    const OverviewParagraf = styled.p`
-        max-width: 500px;
-    `
-
-    const GenresTitle = styled.p`
-        font-weight: 700;
-    `
-    const GenresDiv = styled.div`
-        display: flex;
-        flex-direction: column;
-        
-    `
-    const GenresList = styled.div`
-        display: flex;
-        flex-direction: row;
-        gap: 10px;
-    `
-    const DivDetails = styled.div`
-        margin-left: 20px;
-        margin-bottom: 10px;
-        /* padding-bottom: 20px; */
-        border-bottom: 2px solid lightgray;
-    `
 
     return (
         <>
