@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom"
 import { fetchMovieReviews } from "services/moviesApi";
-import styled from "styled-components";
+import { TitleAuthor } from './Reviews.styled';
 
 const Reviews = () => {
     const [reviews, setReviews] = useState(null);
@@ -11,15 +11,12 @@ const Reviews = () => {
     useEffect (() => {
         fetchMovieReviews(movieId)
             .then(data => {
-                console.log('reviews', data);
+                // console.log('reviews', data);
                 setReviews(data);
             });
                 
     }, [movieId]);
 
-    const TitleAuthor= styled.p`
-        font-weight: 500;
-    `
     return (
         <>
         {reviews && reviews.length > 0 ? (

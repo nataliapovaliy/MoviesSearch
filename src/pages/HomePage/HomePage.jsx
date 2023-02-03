@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { fetchMoviesTrend } from "services/moviesApi";
 import { Link } from "react-router-dom";
-import styled from "styled-components";
+import { ContainerHome } from './HomePage.styled';
 
 const HomePage = () => {
     const [movies, setMovies] = useState([]);
@@ -11,10 +11,6 @@ const HomePage = () => {
             .then(setMovies);
     }, []);
 
-    const ContainerHome = styled.div`
-        margin-left: 20px;
-    `;
-    
     return (
         <>
             <ContainerHome>

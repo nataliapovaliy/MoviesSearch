@@ -35,6 +35,9 @@ export const GenresList = styled.div`
     flex-direction: row;
     gap: 10px;
 `
+export const GenresItem = styled.li`
+    list-style: none;
+`
 export const DivDetails = styled.div`
     margin-left: 20px;
     margin-bottom: 10px;

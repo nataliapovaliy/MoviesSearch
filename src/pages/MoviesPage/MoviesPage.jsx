@@ -9,7 +9,7 @@ const MoviesPage = () => {
     const [searchParams, setSearchParams] = useSearchParams();
     const query = searchParams.get('searchText');
     const [isSearchMovie, setIsSearchMovie] = useState(false);
-    // const [isDisable, setIsDisable] = useState(true);
+    const [isDisable, setIsDisable] = useState(true);
 
     const location = useLocation();
     console.log("location", location);
@@ -22,7 +22,9 @@ const MoviesPage = () => {
                 if (data.length === 0) setIsSearchMovie(true);
             });
         
-    },[query])
+    }, [query])
+    
+    const handleChange = () => {setIsDisable(!isDisable)}
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -35,8 +37,8 @@ const MoviesPage = () => {
     return (
         <>
             <FormInput onSubmit={handleSubmit}>
-                <Input type="text" name="searchText" />
-                <ButtonSearch type="submit">Search</ButtonSearch>
+                <Input type="text" name="searchText" onChange={handleChange}/>
+                <ButtonSearch type="submit" disabled={isDisable}>Search</ButtonSearch>
             </FormInput>
 
             <ul>

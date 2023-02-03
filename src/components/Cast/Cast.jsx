@@ -12,7 +12,7 @@ const Cast = () => {
     useEffect (() => {
         fetchMovieCast(movieId)
             .then(data => {
-                console.log('casts >>>>', data);
+                // console.log('casts >>>>', data);
                 setCasts(data);
             });
                 

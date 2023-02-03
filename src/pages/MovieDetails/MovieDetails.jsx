@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { Link, Outlet, useNavigate, useParams, useLocation } from "react-router-dom";
 import { fetchMovieById } from "services/moviesApi";
-import { ButtonGoBack, Container, ListDetails, OverviewTitle, OverviewParagraf, GenresTitle, GenresDiv, GenresList, DivDetails } from './MovieDetalics.styled'
+import { ButtonGoBack, Container, ListDetails, OverviewTitle, OverviewParagraf, GenresTitle, GenresDiv, GenresList, GenresItem, DivDetails } from './MovieDetalics.styled'
 
 const MovieDetails = () => {
     const navigate = useNavigate();
@@ -32,7 +32,12 @@ const MovieDetails = () => {
                             <GenresDiv>
                                 <GenresTitle>Genres</GenresTitle>
                                 <GenresList>
-                                    {movie.genres.map(({ name }) => <p>{name}</p>)}
+                                    {movie.genres.map(({ name, id }) => (
+                                        <GenresItem key={id}>
+                                            <p>{name}</p>
+                                        </GenresItem>
+                                        )
+                                    )}
                                 </GenresList>
                             </GenresDiv>
                             
