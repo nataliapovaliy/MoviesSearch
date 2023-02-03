@@ -31,7 +31,7 @@ export async function fetchMovieSearch(query) {
             query,
         },
     });
-
+    console.log('data.results >>>', response.data.results);
     return response.data.results;
 }
 

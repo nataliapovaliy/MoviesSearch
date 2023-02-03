@@ -8,11 +8,16 @@ export const MoviesPage = () => {
     const [querySearchText, setQuerySearchText] = useState([]);
     const [searchParams, setSearchParams] = useSearchParams();
     const query = searchParams.get('searchText');
+    const [isSearchMovie, setIsSearchMovie] = useState(false);
 
     useEffect(() => {
         if (query !== '' && query !== null)
         fetchMovieSearch(query)
-            .then(setQuerySearchText);
+            .then(data => {
+                setQuerySearchText(data);
+                if (data.length === 0) setIsSearchMovie(true);
+            });
+        
     },[query])
 
     const handleSubmit = (event) => {
@@ -20,6 +25,7 @@ export const MoviesPage = () => {
         const form = event.target;
         setSearchParams({ searchText: form.elements.searchText.value })
         form.reset();
+        setIsSearchMovie(false);
     }
 
     return (
@@ -30,12 +36,14 @@ export const MoviesPage = () => {
             </FormInput>
 
             <ul>
-            {querySearchText.map(({ title, id }) => (
-                <li key={id}>
-                    <Link to={`${id}`}>{title}</Link>
-                </li>
-            ))}
-        </ul>
+                {querySearchText.map(({ title, id }) => (
+                    <li key={id}>
+                        <Link to={`${id}`}>{title}</Link>
+                    </li>
+                ))}
+            </ul>
+
+            {isSearchMovie && <p>We don't have any movie for this search.</p>}
         <Outlet />
     </>
     )
