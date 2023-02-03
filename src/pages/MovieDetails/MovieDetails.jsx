@@ -1,7 +1,7 @@
 // import { useFetchMovie } from "hooks/UseFetchMovie/UseFetchMovie"
 
 import { useEffect, useState } from "react";
-import { Link, Outlet, useNavigate, useParams } from "react-router-dom";
+import { Link, Outlet, useNavigate, useParams, useLocation } from "react-router-dom";
 import { fetchMovieById } from "services/moviesApi";
 import { ButtonGoBack, Container, ListDetails, OverviewTitle, OverviewParagraf, GenresTitle, GenresDiv, GenresList, DivDetails } from './MovieDetalics.styled'
 
@@ -10,6 +10,8 @@ export const MovieDetails = () => {
     const navigate = useNavigate();
     const [movie, setMovie] = useState (null);
     const { movieId } = useParams();
+
+    const location = useLocation();
 
     useEffect (() => {
         fetchMovieById(movieId)
@@ -20,7 +22,7 @@ export const MovieDetails = () => {
         <>
             {movie && (
                 <>
-                    <ButtonGoBack onClick={()=>navigate('/')}>Go back</ButtonGoBack>
+                    <ButtonGoBack onClick={() => navigate(location.state?.from ?? '/')}>Go back</ButtonGoBack>
                     <Container>
                         <img src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`} alt={movie.title} />
                         <ListDetails>
