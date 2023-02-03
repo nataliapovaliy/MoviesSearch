@@ -12,7 +12,7 @@ const MoviesPage = () => {
     const [isDisable, setIsDisable] = useState(true);
 
     const location = useLocation();
-    console.log("location", location);
+    // console.log("location", location);
 
     useEffect(() => {
         if (query !== '' && query !== null)
