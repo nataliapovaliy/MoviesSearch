@@ -5,7 +5,6 @@ import { Link, Outlet, useNavigate, useParams, useLocation } from "react-router-
 import { fetchMovieById } from "services/moviesApi";
 import { ButtonGoBack, Container, ListDetails, OverviewTitle, OverviewParagraf, GenresTitle, GenresDiv, GenresList, DivDetails } from './MovieDetalics.styled'
 
-
 const MovieDetails = () => {
     const navigate = useNavigate();
     const [movie, setMovie] = useState (null);

@@ -20,7 +20,7 @@ export async function fetchMovieById(id) {
             api_key: KEY,
         },
     });
-    // console.log(response.data);
+    console.log(response.data);
     return response.data;
 }
 
