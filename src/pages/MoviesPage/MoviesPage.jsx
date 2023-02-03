@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useEffect } from "react";
-import { Link, Outlet, useLocation, useSearchParams } from "react-router-dom";
+import { Link, useLocation, useSearchParams } from "react-router-dom";
 import { fetchMovieSearch } from "services/moviesApi";
 import { FormInput, Input, ButtonSearch } from './MoviesPage.styled';
 
@@ -47,7 +47,6 @@ export const MoviesPage = () => {
             </ul>
 
             {isSearchMovie && <p>We don't have any movie for this search.</p>}
-        <Outlet />
     </>
     )
 
