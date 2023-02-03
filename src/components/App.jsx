@@ -1,19 +1,22 @@
 import { Routes, Route } from "react-router-dom";
 import { Layout } from "./Layout/Layout";
-import { HomePage } from "pages/HomePage/HomePage";
-import { MoviesPage } from "pages/MoviesPage/MoviesPage";
-import { MovieDetails } from "pages/MovieDetails/MovieDetails";
-import { Cast } from "./Cast/Cast";
-import { Reviews } from "./Reviews/Reviews";
-// import { lazy, Suspense } from "react";
+// import { HomePage } from "pages/HomePage/HomePage";
+// import { MoviesPage } from "pages/MoviesPage/MoviesPage";
+// import { MovieDetails } from "pages/MovieDetails/MovieDetails";
+// import { Cast } from "./Cast/Cast";
+// import { Reviews } from "./Reviews/Reviews";
+import { lazy } from "react";
 
-// const Cast = lazy(() => import("./Cast/Cast"));
+const HomePage = lazy(() => import("pages/HomePage/HomePage"));
+const MoviesPage = lazy(() => import("pages/MoviesPage/MoviesPage"));
+const MovieDetails = lazy(() => import("pages/MovieDetails/MovieDetails"));
+const Cast = lazy(() => import("./Cast/Cast"));
+const Reviews = lazy(() => import("./Reviews/Reviews"));
 
 export const App = () => {
 
   return (
-    // <Suspense fallback={<div>Loading...</div>}>
-    <div>
+      <div>
       <Routes>
 
         <Route path="/" element={<Layout />} >
@@ -30,6 +33,5 @@ export const App = () => {
         </Route>  
       </Routes>
       </div>
-      // </Suspense>
   );
 };

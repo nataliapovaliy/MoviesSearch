@@ -4,11 +4,12 @@ import { Link, useLocation, useSearchParams } from "react-router-dom";
 import { fetchMovieSearch } from "services/moviesApi";
 import { FormInput, Input, ButtonSearch } from './MoviesPage.styled';
 
-export const MoviesPage = () => {
+const MoviesPage = () => {
     const [querySearchText, setQuerySearchText] = useState([]);
     const [searchParams, setSearchParams] = useSearchParams();
     const query = searchParams.get('searchText');
     const [isSearchMovie, setIsSearchMovie] = useState(false);
+    // const [isDisable, setIsDisable] = useState(true);
 
     const location = useLocation();
     console.log("location", location);
@@ -49,6 +50,6 @@ export const MoviesPage = () => {
             {isSearchMovie && <p>We don't have any movie for this search.</p>}
     </>
     )
-
-    
 }
+
+export default MoviesPage

@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom"
 import { fetchMovieCast } from "services/moviesApi";
 import { ListCasts, Img } from './Cast.styled';
 
-export const Cast = () => {
+const Cast = () => {
     const [casts, setCasts] = useState(null);
     const {movieId} = useParams();
 
@@ -36,4 +36,4 @@ export const Cast = () => {
     )
 }
 
-
+export default Cast

@@ -6,7 +6,7 @@ import { fetchMovieById } from "services/moviesApi";
 import { ButtonGoBack, Container, ListDetails, OverviewTitle, OverviewParagraf, GenresTitle, GenresDiv, GenresList, DivDetails } from './MovieDetalics.styled'
 
 
-export const MovieDetails = () => {
+const MovieDetails = () => {
     const navigate = useNavigate();
     const [movie, setMovie] = useState (null);
     const { movieId } = useParams();
@@ -51,8 +51,6 @@ export const MovieDetails = () => {
                         </ul>
                     </DivDetails>    
                     <Outlet />
-                    
-                    
                 </>
             )}
             
@@ -60,6 +58,7 @@ export const MovieDetails = () => {
     )
 }
 
+export default MovieDetails
 
 
 // export const MovieSubPage = () => {

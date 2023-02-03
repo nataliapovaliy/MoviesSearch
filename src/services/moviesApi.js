@@ -20,7 +20,7 @@ export async function fetchMovieById(id) {
             api_key: KEY,
         },
     });
-    console.log(response.data);
+    // console.log(response.data);
     return response.data;
 }
 
@@ -31,7 +31,7 @@ export async function fetchMovieSearch(query) {
             query,
         },
     });
-    console.log('data.results >>>', response.data.results);
+    // console.log('data.results >>>', response.data.results);
     return response.data.results;
 }
 
