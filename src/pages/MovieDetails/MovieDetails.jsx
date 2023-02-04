@@ -1,21 +1,12 @@
-// import { useFetchMovie } from "hooks/UseFetchMovie/UseFetchMovie"
-
-import { useEffect, useState } from "react";
-import { Link, Outlet, useNavigate, useParams, useLocation } from "react-router-dom";
-import { fetchMovieById } from "services/moviesApi";
+import { useFetchMovie } from "hooks/UseFetchMovie/UseFetchMovie"
+import { Link, Outlet, useNavigate, useLocation } from "react-router-dom";
 import { ButtonGoBack, Container, ListDetails, OverviewTitle, OverviewParagraf, GenresTitle, GenresDiv, GenresList, GenresItem, DivDetails } from './MovieDetalics.styled'
+import defaultfoto from 'img/defaultfoto.jpg';
 
 const MovieDetails = () => {
     const navigate = useNavigate();
-    const [movie, setMovie] = useState (null);
-    const { movieId } = useParams();
-
+    const movie = useFetchMovie();
     const location = useLocation();
-
-    useEffect (() => {
-        fetchMovieById(movieId)
-            .then(setMovie);
-    }, [movieId]);
 
     return (
         <>
@@ -23,7 +14,7 @@ const MovieDetails = () => {
                 <>
                     <ButtonGoBack onClick={() => navigate(location.state?.from ?? '/')}>Go back</ButtonGoBack>
                     <Container>
-                        <img src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`} alt={movie.title} />
+                        <img src={movie.poster_path ? `https://image.tmdb.org/t/p/w300${movie.poster_path}` : defaultfoto} alt={movie.title} />
                         <ListDetails>
                             <h2>{movie.title}</h2>
                             <p>User Score: {Math.round(movie.vote_average * 10)}%</p>
@@ -63,20 +54,3 @@ const MovieDetails = () => {
 }
 
 export default MovieDetails
-
-
-// export const MovieSubPage = () => {
-//     const movie = useFetchMovie();
-//     console.log(movie);
-//     return (
-//         <>
-//             {movie && (
-//                 <>
-//                     <h2>{movie.title}</h2>
-//                     <img src={movie.poster_path}  alt={movie.title} />
-//                 </>
-//             )}
-            
-//         </>
-//     )
-// }

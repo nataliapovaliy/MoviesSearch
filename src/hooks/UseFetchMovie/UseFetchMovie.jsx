@@ -6,7 +6,7 @@ import { fetchMovieById } from "services/moviesApi"
 export const useFetchMovie = () => {
     const [movie, setMovie] = useState(null);
     const { movieId } = useParams();
-    console.log(movieId);
+    // console.log(movieId);
     useEffect(() => {
         fetchMovieById(movieId)
             .then(setMovie);
