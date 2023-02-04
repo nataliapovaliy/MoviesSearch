@@ -8,7 +8,7 @@ import  defaultfoto from 'img/defaultfoto.jpg';
 const Cast = () => {
     const [casts, setCasts] = useState(null);
     const {movieId} = useParams();
-
+    
     useEffect (() => {
         fetchMovieCast(movieId)
             .then(data => {
